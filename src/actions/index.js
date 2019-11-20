@@ -1,11 +1,14 @@
 export const CHANGE_QUERY = 'CHANGE_QUERY'
-export const SEARCH = 'SEARCH'
+export const HANDLE_SEARCH = 'HANDLE_SEARCH'
 export const HANDLE_CHANGE = 'HANDLE_CHANGE'
 export const SET_LIST= 'SET_LIST'
 
-export const setExchangeList = list => ({
+export const setList = (title, list) => ({
     type: SET_LIST,
-    payload: list
+    payload: {
+        title: title,
+        list: list
+    }
 })
 
 export const changeQuery = number => ({
@@ -13,9 +16,9 @@ export const changeQuery = number => ({
     payload: number
 }) 
 
-export const search = () => ({
-    type: SEARCH,
-    payload: null
+export const handleSearch = event => ({
+    type: HANDLE_SEARCH,
+    payload: event.target
 })
 
 export const handleChange = event => ({

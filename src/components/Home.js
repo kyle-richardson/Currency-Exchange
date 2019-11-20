@@ -13,7 +13,7 @@ const Home = ({shownList, getList,handleSearch, handleChange, query, searchValue
     const showSearchFilter = ()=> {
         return (searchList.map(ele=>{
             return(
-                <div key={ele[0]}>{ele[0]}: {Math.round(ele[1])}</div>
+                <div key={ele[0]} className="single-item">{ele[0]}: {Math.round(ele[1])}</div>
             )
         }))
     }
@@ -21,14 +21,14 @@ const Home = ({shownList, getList,handleSearch, handleChange, query, searchValue
     const showFullList = ()=> {
         return (shownList.map(ele=>{
             return(
-                <div key ={ele[0]}>{ele[0]}: {Math.round(ele[1])}</div>
+                <div key ={ele[0]} className="single-item">{ele[0]}: {Math.round(ele[1])}</div>
             )
         }))
     }
 
     return(
         <div className="home-container">
-            <div >
+            <div className="search-container">
                 <input 
                     className="search-box"
                     type="text" 
@@ -38,7 +38,7 @@ const Home = ({shownList, getList,handleSearch, handleChange, query, searchValue
                     placeholder="search currency names"/>
 
             </div>
-            <div >
+            <div className="query-container">
                 <label> 
                     {`USD: `}
                 </label>

@@ -6,7 +6,7 @@ export const HANDLE_CHANGE = 'HANDLE_CHANGE'
 export const FETCH_LIST_START = 'FETCH_LIST_START'
 export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS'
 export const FETCH_LIST_FAIL = 'FETCH_LIST_FAIL'
-export const ISOLATE_ITEM = 'ISOLATE_ITEM'
+export const REFRESH_LIST = 'REFRESH_LIST'
 
 export const getList = () => dispatch => {
     dispatch({ type: FETCH_LIST_START });
@@ -26,4 +26,8 @@ export const handleSearch = search => ({
 export const handleChange = event => ({
     type: HANDLE_CHANGE,
     payload: event.target
+})
+
+export const refreshList = ()=> ({
+    type: REFRESH_LIST
 })

@@ -1,11 +1,11 @@
 import React, {useEffect} from "react"
 import {connect} from "react-redux"
-import {getList} from "../actions"
+import {getList, refreshList} from "../actions"
 
 import List from "./List"
 import Form from "./Form"
 
-const Home = ({getList}) => {
+const Home = ({getList, refreshList, query, searchValue}) => {
 
 
     useEffect(()=> {
@@ -13,6 +13,9 @@ const Home = ({getList}) => {
             // eslint-disable-next-line
     }, [])
 
+    useEffect(()=> {
+        refreshList()
+    }, [query, searchValue])
     
 
     return(
@@ -22,6 +25,11 @@ const Home = ({getList}) => {
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    query: state.query,
+    searchValue: state.searchValue
+})
   
-  export default connect(null,{getList})(Home);
+  export default connect(mapStateToProps,{getList, refreshList})(Home);
   

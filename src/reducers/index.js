@@ -3,7 +3,7 @@ import { HANDLE_SEARCH, HANDLE_CHANGE, FETCH_LIST_FAIL, FETCH_LIST_SUCCESS, FETC
 const initialState = {
     baseExchangeList: [],
     shownList: [],
-    query: '',
+    query: 1,
     searchList: [],
     searchValue: '',
     error: '',

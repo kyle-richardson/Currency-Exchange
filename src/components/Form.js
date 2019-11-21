@@ -5,17 +5,7 @@ import {connect} from "react-redux"
 
 const Form = ({handleSearch,searchValue,handleChange,query})=> {
     return(
-        <div>
-            <div className="search-container">
-                <input 
-                    className="search-box"
-                    type="text" 
-                    onChange={handleSearch} 
-                    value={searchValue} 
-                    name="searchValue" 
-                    placeholder="search currency names"/>
-
-            </div>
+        <div className="form-container">
             <div className="query-container">
                 <label> 
                     {`USD: `}
@@ -27,6 +17,16 @@ const Form = ({handleSearch,searchValue,handleChange,query})=> {
                     value={query}
                     name="query" 
                     placeholder="Enter USD to convert"/> 
+            </div>
+            <div className="search-container">
+                <input 
+                    className="search-box"
+                    type="text" 
+                    onChange={handleSearch} 
+                    value={searchValue} 
+                    name="searchValue" 
+                    placeholder="search currency names"/>
+
             </div>
         </div>
     )

@@ -21,17 +21,17 @@ code {
 
 .search-container {
   margin-bottom: 10px;
+  margin-left: 20px;
 }
-.search-box {
+.search-box, .query-box {
   width: 150px;
+  border-radius: 6px;
+  padding: 5px;
+  border: 1px solid green;
 }
 
 .query-container {
  margin-bottom: 10px;
-}
-
-.query-box {
-  width: 150px;
 }
 
 .list {
@@ -45,4 +45,24 @@ code {
   padding: 10px;
   margin: 10px 3px;
   min-width: 70px;
+}
+
+.start-container {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.start-button {
+  text-align: center;
+  border-radius: 6px;
+  background: darkgreen;
+  color: white;
+  width: 150px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
 }

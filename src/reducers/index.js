@@ -36,7 +36,7 @@ export const rootReducer = (state = initialState, {type, payload})=> {
             return {
                 ...state,
                 [payload.name]: payload.value,
-                searchList: state.shownList.filter(ele=> ele[0].toLowerCase().includes(payload.value.toLowerCase()))
+                searchList: state.baseExchangeList.filter(ele=> ele[0].toLowerCase().includes(payload.value.toLowerCase())).map(ele=> [ele[0], ele[1]*state.query])
             }
         case HANDLE_CHANGE:
             return {

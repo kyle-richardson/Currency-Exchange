@@ -13,7 +13,7 @@ export const getList = () => dispatch => {
     axios
       .get('https://openexchangerates.org/api/latest.json?app_id=c369c926595647bdaafaad7c44843b2d')
       .then(res =>
-        setTimeout(()=>{dispatch({ type: FETCH_LIST_SUCCESS, payload: Object.entries(res.data.rates) })},1400)
+        setTimeout(()=>{dispatch({ type: FETCH_LIST_SUCCESS, payload: Object.entries(res.data.rates) })},1000)
       )
       .catch(err => dispatch({ type: FETCH_LIST_FAIL, payload: err }));
   };

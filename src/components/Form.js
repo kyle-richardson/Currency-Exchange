@@ -28,6 +28,9 @@ const Form = ({handleSearch,searchValue,handleChange,query})=> {
                     placeholder="search currency names"/>
 
             </div>
+            <div className="clear-button" onClick={()=>handleSearch('')}>
+                Clear Search
+            </div>
         </div>
     )
 }

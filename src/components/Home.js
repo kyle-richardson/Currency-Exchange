@@ -5,7 +5,7 @@ import {getList, refreshList} from "../actions"
 import List from "./List"
 import Form from "./Form"
 
-const Home = ({getList, refreshList, query, searchValue}) => {
+const Home = ({getList, refreshList, query, searchValue, isFetching}) => {
 
 
     useEffect(()=> {
@@ -15,10 +15,11 @@ const Home = ({getList, refreshList, query, searchValue}) => {
 
     useEffect(()=> {
         refreshList()
+        // eslint-disable-next-line
     }, [query, searchValue])
     
-
-    return(
+    return (
+    isFetching ? <div className="loading">Fetching Rates...</div> :
         <div className="home-container">
             <Form />
             <List />
@@ -28,7 +29,8 @@ const Home = ({getList, refreshList, query, searchValue}) => {
 
 const mapStateToProps = state => ({
     query: state.query,
-    searchValue: state.searchValue
+    searchValue: state.searchValue,
+    isFetching: state.isFetching
 })
   
   export default connect(mapStateToProps,{getList, refreshList})(Home);

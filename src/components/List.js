@@ -1,27 +1,24 @@
 import React from "react"
 import {connect} from "react-redux"
+import {handleSearch} from "../actions"
 
-const List = ({shownList,searchList, searchValue}) => {
+const List = ({handleSearch, shownList,searchList, searchValue}) => {
 
-    const showSearchFilter = ()=> {
-        return (searchList.map(ele=>{
-            return(
-                <div key={ele[0]} className="single-item">{ele[0]}: {Math.round(ele[1])}</div>
-            )
-        }))
-    }
-
-    const showFullList = ()=> {
-        return (shownList.map(ele=>{
-            return(
-                <div key ={ele[0]} className="single-item">{ele[0]}: {Math.round(ele[1])}</div>
-            )
-        }))
-    }
-
+    let list = []
+    searchValue ? list=searchList : list=shownList
+    
     return(
         <div className="list">
-            {searchValue ? showSearchFilter() : showFullList()}
+            {list.map(ele=>{
+                return(
+                    <div 
+                        key ={ele[0]} 
+                        className="single-item" 
+                        onClick={()=>handleSearch(ele[0])}>
+                            {`${Math.round(ele[1])} ${ele[0]}`}
+                    </div>
+                )
+            })}
         </div>
     )
 }
@@ -32,4 +29,4 @@ const mapStateToProps = state => ({
     searchValue: state.searchValue
 })
 
-export default connect(mapStateToProps,{})(List);
+export default connect(mapStateToProps,{handleSearch})(List);

@@ -1,4 +1,4 @@
-import { HANDLE_SEARCH, HANDLE_CHANGE, SET_LIST, FETCH_LIST_FAIL, FETCH_LIST_SUCCESS, FETCH_LIST_START} from "../actions"
+import { HANDLE_SEARCH, HANDLE_CHANGE, FETCH_LIST_FAIL, FETCH_LIST_SUCCESS, FETCH_LIST_START} from "../actions"
 
 const initialState = {
     baseExchangeList: [],
@@ -35,8 +35,8 @@ export const rootReducer = (state = initialState, {type, payload})=> {
         case HANDLE_SEARCH:
             return {
                 ...state,
-                [payload.name]: payload.value,
-                searchList: state.baseExchangeList.filter(ele=> ele[0].toLowerCase().includes(payload.value.toLowerCase())).map(ele=> [ele[0], ele[1]*state.query])
+                searchValue: payload,
+                searchList: state.baseExchangeList.filter(ele=> ele[0].toLowerCase().includes(payload.toLowerCase())).map(ele=> [ele[0], ele[1]*state.query])
             }
         case HANDLE_CHANGE:
             return {

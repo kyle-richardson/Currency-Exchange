@@ -3,10 +3,10 @@ import axios from "axios"
 export const CHANGE_QUERY = 'CHANGE_QUERY'
 export const HANDLE_SEARCH = 'HANDLE_SEARCH'
 export const HANDLE_CHANGE = 'HANDLE_CHANGE'
-export const SET_LIST= 'SET_LIST'
 export const FETCH_LIST_START = 'FETCH_LIST_START'
 export const FETCH_LIST_SUCCESS = 'FETCH_LIST_SUCCESS'
 export const FETCH_LIST_FAIL = 'FETCH_LIST_FAIL'
+export const ISOLATE_ITEM = 'ISOLATE_ITEM'
 
 export const getList = () => dispatch => {
     dispatch({ type: FETCH_LIST_START });
@@ -18,9 +18,9 @@ export const getList = () => dispatch => {
       .catch(err => dispatch({ type: FETCH_LIST_FAIL, payload: err }));
   };
 
-export const handleSearch = event => ({
+export const handleSearch = search => ({
     type: HANDLE_SEARCH,
-    payload: event.target
+    payload: search
 })
 
 export const handleChange = event => ({

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(211, 218, 235);
 }
 
 code {
@@ -27,7 +28,7 @@ code {
   width: 150px;
   border-radius: 6px;
   padding: 5px;
-  border: 1px solid green;
+  border: 2px solid rgb(55, 95, 202);
 }
 
 .query-container {
@@ -40,11 +41,13 @@ code {
 }
 
 .single-item {
-  border: 1px solid blue;
+  background: rgb(55, 95, 202);
   border-radius: 4px;
   padding: 10px;
   margin: 10px 3px;
   min-width: 70px;
+  color: white;
+  cursor: pointer;
 }
 
 .start-container {

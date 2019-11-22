@@ -10,7 +10,7 @@ const Home = ({getList, refreshList, query, searchValue, isFetching}) => {
 
     useEffect(()=> {
         getList()
-            // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [])
 
     useEffect(()=> {

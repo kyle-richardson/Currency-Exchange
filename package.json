@@ -33,5 +33,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/kyle-richardson/React-Redux-App.git",
+  "author": "Kyle Richardson <kyle.richardson1@gmail.com>",
+  "license": "MIT"
 }

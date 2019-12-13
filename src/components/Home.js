@@ -33,5 +33,5 @@ const mapStateToProps = state => ({
     isFetching: state.isFetching
 })
   
-  export default connect(mapStateToProps,{getList, refreshList})(Home);
+export default connect(mapStateToProps,{getList, refreshList})(Home);
   

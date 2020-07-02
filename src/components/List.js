@@ -2,19 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { handleSearch } from "../actions";
 
-// most popular traded currencies
-
-// US dollar (USD)
-// Euro (EUR)
-// Japanese yen (JPY)
-// Pound sterling (GBP)
-// Australian dollar (AUD)
-// Canadian dollar (CAD)
-// Swiss franc (CHF)
-// Chinese renminbi (CNH)
-// Swedish krona (SEK)
-// New Zealand dollar (NZD)
-
+//these are most popular traded currencies according to https://www.ig.com/us/trading-strategies/what-are-the-top-10-most-traded-currencies-in-the-world-200115
 const popular = [
   "USD",
   "EUR",
@@ -24,7 +12,7 @@ const popular = [
   "CAD",
   "CHF",
   "CNH",
-  "SEK",
+  "HKD",
   "NZD",
 ];
 
@@ -59,12 +47,12 @@ const List = ({
     <>
       <h4>Top 10 most traded currencies worldwide:</h4>
       <div>
-        <div style={{ display: "flex", flexWrap: "wrap" }}>
+        <div className="list">
           {popularList.map((ele) => {
             return (
               <div
                 key={ele[0]}
-                className="single-item"
+                className="single-item-popular"
                 onClick={() => handleSearch(ele[0])}
               >
                 {`${Math.round(ele[1])} ${ele[0]}`}
@@ -86,7 +74,10 @@ const List = ({
                 list.length === 1 ? handleSearch("") : handleSearch(ele[0])
               }
             >
-              {`${Math.round(ele[1])} ${ele[0]}`}
+              {list.length === 1
+                ? `${ele[1].toFixed(3)}`
+                : `${Math.round(ele[1])}`}
+              {` ${ele[0]}`}
             </div>
           );
         })}
@@ -103,7 +94,7 @@ const List = ({
               Symbol:{" "}
               {singleItem.length > 0 && singleItem[0].currencyInfo.symbol
                 ? singleItem[0].currencyInfo.symbol
-                : "(no symbol)"}
+                : "(no symbol found)"}
             </p>
             <h3>Countries associated with this currency:</h3>
             {countries

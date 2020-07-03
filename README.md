@@ -2,6 +2,6 @@
 
 ### APIs used
 
-[Open Exchange Rates](openexchangerates.org)
+[Open Exchange Rates](https://openexchangerates.org)
 
-[REST countries](restcountries.eu)
+[REST countries](https://restcountries.eu)

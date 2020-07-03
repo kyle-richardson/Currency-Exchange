@@ -61,21 +61,6 @@ export const getList = () => (dispatch) => {
     .catch((err) => dispatch({ type: FETCH_LIST_FAIL, payload: err }));
 };
 
-// export const getCountries = () => (dispatch) => {
-//   dispatch({ type: FETCH_COUNTRIES_START });
-//   axios
-//     .get(
-//       `https://openexchangerates.org/api/latest.json?app_id=${process.env.REACT_APP_API_KEY}`
-//     )
-//     .then((res) =>
-//       dispatch({
-//         type: FETCH_COUNTRIES_SUCCESS,
-//         payload: Object.entries(res.data.rates),
-//       })
-//     )
-//     .catch((err) => dispatch({ type: FETCH_COUNTRIES_FAIL, payload: err }));
-// };
-
 export const handleSearch = (search, isExact) => ({
   type: HANDLE_SEARCH,
   payload: { search: search, isExact: isExact },

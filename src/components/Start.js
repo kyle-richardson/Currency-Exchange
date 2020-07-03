@@ -25,7 +25,11 @@ const Start = () => {
           </span>
           <a
             href="https://openexchangerates.org/"
-            style={{ textDecoration: "underline", fontSize: ".8rem" }}
+            style={{
+              color: "rgb(114, 192, 221)",
+              textDecoration: "underline",
+              fontSize: ".8rem",
+            }}
           >
             Open Exchange Rates API
           </a>

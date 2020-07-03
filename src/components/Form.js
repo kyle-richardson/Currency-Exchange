@@ -24,7 +24,7 @@ const Form = ({ handleSearch, searchValue, handleChange, query }) => {
           onChange={(e) => handleSearch(e.target.value)}
           value={searchValue}
           name="searchValue"
-          placeholder="search currency names"
+          placeholder="currency or country"
         />
       </div>
       <div className="clear-button" onClick={() => handleSearch("")}>

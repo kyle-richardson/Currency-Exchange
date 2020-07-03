@@ -45,7 +45,7 @@ const List = ({
 
   return (
     <>
-      <h4>Top 10 most traded currencies worldwide:</h4>
+      <h4>Top 10 most traded currencies (alphabetical order):</h4>
       <div>
         <div className="list">
           {popularList.map((ele) => {
@@ -62,47 +62,53 @@ const List = ({
         </div>
       </div>
       <h4 style={list.length === 1 ? { visibility: "hidden" } : null}>
-        All currencies (alphabetical order):
+        {searchValue
+          ? "Search Results (alphabetical order):"
+          : "All currencies (alphabetical order):"}
       </h4>
-      <div className={list.length === 1 ? "solo" : "list"}>
-        {list.map((ele) => {
-          return (
-            <div
-              key={ele[0]}
-              className="single-item"
-              onClick={() =>
-                list.length === 1 ? handleSearch("") : handleSearch(ele[0])
-              }
-            >
-              {list.length === 1
-                ? `${ele[1].toFixed(3)}`
-                : `${Math.round(ele[1])}`}
-              {` ${ele[0]}`}
+      {list.length > 0 ? (
+        <div className={list.length === 1 ? "solo" : "list"}>
+          {list.map((ele) => {
+            return (
+              <div
+                key={ele[0]}
+                className="single-item"
+                onClick={() =>
+                  list.length === 1 ? handleSearch("") : handleSearch(ele[0])
+                }
+              >
+                {list.length === 1
+                  ? `${ele[1].toFixed(3)}`
+                  : `${Math.round(ele[1])}`}
+                {` ${ele[0]}`}
+              </div>
+            );
+          })}
+          {list.length === 1 && (
+            <div>
+              <h3>Currency info:</h3>
+              <p>
+                Full name:{" "}
+                {singleItem.length > 0 && singleItem[0].currencyInfo.name
+                  ? singleItem[0].currencyInfo.name
+                  : "(no name available)"}
+              </p>
+              <p>
+                Symbol:{" "}
+                {singleItem.length > 0 && singleItem[0].currencyInfo.symbol
+                  ? singleItem[0].currencyInfo.symbol
+                  : "(no symbol found)"}
+              </p>
+              <h3>Countries associated with this currency:</h3>
+              {countries
+                ? countries.map((country) => <p key={country}>{country}</p>)
+                : "(no countries found)"}
             </div>
-          );
-        })}
-        {list.length === 1 && (
-          <div>
-            <h3>Currency info:</h3>
-            <p>
-              Full name:{" "}
-              {singleItem.length > 0 && singleItem[0].currencyInfo.name
-                ? singleItem[0].currencyInfo.name
-                : "(no name available)"}
-            </p>
-            <p>
-              Symbol:{" "}
-              {singleItem.length > 0 && singleItem[0].currencyInfo.symbol
-                ? singleItem[0].currencyInfo.symbol
-                : "(no symbol found)"}
-            </p>
-            <h3>Countries associated with this currency:</h3>
-            {countries
-              ? countries.map((country) => <p key={country}>{country}</p>)
-              : "(no countries found)"}
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      ) : (
+        <p>No currencies match your search.</p>
+      )}
     </>
   );
 };

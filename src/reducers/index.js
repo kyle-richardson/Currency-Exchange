@@ -60,12 +60,34 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         query: payload.value,
       };
     case REFRESH_LIST:
+      const countries = state.countryList
+        ? state.countryList.filter((item) =>
+            item.countries
+              ? item.countries.filter((country) =>
+                  country
+                    .toLowerCase()
+                    .includes(state.searchValue.toLowerCase())
+                ).length > 0
+              : false
+          )
+        : [];
       return {
         ...state,
         searchList: state.searchValue
           ? state.baseExchangeList
               .filter((ele) =>
-                ele[0].toLowerCase().includes(state.searchValue.toLowerCase())
+                countries
+                  ? countries.filter((item) =>
+                      ele[0]
+                        .toLowerCase()
+                        .includes(item.currencyInfo.code.toLowerCase())
+                    ).length > 0 ||
+                    ele[0]
+                      .toLowerCase()
+                      .includes(state.searchValue.toLowerCase())
+                  : ele[0]
+                      .toLowerCase()
+                      .includes(state.searchValue.toLowerCase())
               )
               .map((ele) => [ele[0], ele[1] * state.query])
           : [],

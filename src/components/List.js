@@ -53,7 +53,7 @@ const List = ({
               <div
                 key={ele[0]}
                 className="single-item-popular"
-                onClick={() => handleSearch(ele[0])}
+                onClick={() => handleSearch(ele[0], true)}
               >
                 {`${Math.round(ele[1])} ${ele[0]}`}
               </div>
@@ -74,7 +74,9 @@ const List = ({
                 key={ele[0]}
                 className="single-item"
                 onClick={() =>
-                  list.length === 1 ? handleSearch("") : handleSearch(ele[0])
+                  list.length === 1
+                    ? handleSearch("")
+                    : handleSearch(ele[0], true)
                 }
               >
                 {list.length === 1

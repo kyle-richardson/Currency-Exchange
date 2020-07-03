@@ -8,10 +8,10 @@ const Start = () => {
       <p>
         Just enter the USD amount, and the app automatically updates the
         conversion rates in real time*. You can also search for specific
-        currency names.
+        currency or country names.
       </p>
       <Link to="/rates">
-        <div className="start-button" style={{ marginBottom: "20px" }}>
+        <div className="start-button" style={{ marginBottom: "40px" }}>
           Get Rates!
         </div>
       </Link>

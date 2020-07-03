@@ -21,7 +21,7 @@ const Form = ({ handleSearch, searchValue, handleChange, query }) => {
         <input
           className="search-box"
           type="text"
-          onChange={(e) => handleSearch(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value, false)}
           value={searchValue}
           name="searchValue"
           placeholder="currency or country"

@@ -76,9 +76,9 @@ export const getList = () => (dispatch) => {
 //     .catch((err) => dispatch({ type: FETCH_COUNTRIES_FAIL, payload: err }));
 // };
 
-export const handleSearch = (search) => ({
+export const handleSearch = (search, isExact) => ({
   type: HANDLE_SEARCH,
-  payload: search,
+  payload: { search: search, isExact: isExact },
 });
 
 export const handleChange = (event) => ({

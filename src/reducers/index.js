@@ -17,6 +17,7 @@ const initialState = {
   error: "",
   isFetching: false,
   countryList: [],
+  isExact: false,
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -52,7 +53,8 @@ export const rootReducer = (state = initialState, { type, payload }) => {
     case HANDLE_SEARCH:
       return {
         ...state,
-        searchValue: payload,
+        searchValue: payload.search,
+        isExact: payload.isExact,
       };
     case HANDLE_CHANGE:
       return {
@@ -76,7 +78,7 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         searchList: state.searchValue
           ? state.baseExchangeList
               .filter((ele) =>
-                countries
+                countries && !state.isExact
                   ? countries.filter((item) =>
                       ele[0]
                         .toLowerCase()

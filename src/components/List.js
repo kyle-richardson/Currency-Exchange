@@ -87,7 +87,7 @@ const List = ({
             );
           })}
           {list.length === 1 && (
-            <div>
+            <div className="single-currency-box">
               <h3>Currency info:</h3>
               <p>
                 Full name:{" "}
@@ -101,7 +101,7 @@ const List = ({
                   ? singleItem[0].currencyInfo.symbol
                   : "(no symbol found)"}
               </p>
-              <h3>Countries associated with this currency:</h3>
+              <h3>Territories associated with this currency:</h3>
               {countries
                 ? countries.map((country) => <p key={country}>{country}</p>)
                 : "(no countries found)"}
